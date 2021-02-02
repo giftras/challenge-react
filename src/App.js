@@ -9,7 +9,6 @@ import Alert from '@material-ui/lab/Alert';
 class App extends Component {
   constructor(props) {
     super(props);
-    const { data } = this.props;
     this.state = {
       charities: [],
       selectedAmount: 10,
@@ -114,10 +113,6 @@ class App extends Component {
   });
   }
 
-  handleOptionChange(e) {
-
-  }
-
   render() {
     const self = this;
     const cards = this.state.charities.map(function (item, i) {
@@ -142,7 +137,7 @@ class App extends Component {
       if (item.show) {
         donatePayment = (<styleCss.PaymentFormDiv>
           <span id={item.id} className="close" onClick={self.closePaymentModal}>&times;</span>
-          <styleCss.PaymentSection>
+          <div className="payment-section">
             <form onSubmit={self.handlePay}>
             <input type='hidden' id='charityId' name='charityId' value={item.id} />
         <p>Select the amount to donate ({item.currency})</p>
@@ -150,7 +145,7 @@ class App extends Component {
             <br></br>
             <styleCss.Button className="paymentButton" type="submit">Pay</styleCss.Button>
             </form>
-          </styleCss.PaymentSection>
+          </div>
 
           </styleCss.PaymentFormDiv>);
       }
@@ -158,12 +153,12 @@ class App extends Component {
       return (
         <styleCss.Card key={i} id={item.id} className="donate-card">
           <div>
-            <styleCss.Img src={imagePath} />
+            <img className="charity-img" src={imagePath} />
           </div>
-          <styleCss.DonateSection>
+          <div className="donate-section">
             <p>{item.name}</p>
             <styleCss.Button ref={button => self.closemodal = button} variant="outlined" color="primary" id={item.id} onClick={self.showHide}>Donate</styleCss.Button>
-          </styleCss.DonateSection>
+          </div>
 
           {donatePayment}
 
@@ -176,7 +171,7 @@ class App extends Component {
     const message = this.props.message;
     let alert = null;
     if (this.props.status === 'success') {
-      alert = (<Alert severity="success">{message}</Alert>);
+      alert = (<Alert severity="success" >{message}</Alert>);
       setTimeout(()=> {
         self.props.dispatch({
           type: 'UPDATE_MESSAGE',
@@ -186,7 +181,7 @@ class App extends Component {
       }, 4000);
 
     } else if (this.props.status === 'error') {
-      alert = (<Alert severity="error">{message}</Alert>);
+      alert = (<Alert severity="error" >{message}</Alert>);
       setTimeout(()=> {
         self.props.dispatch({
           type: 'UPDATE_MESSAGE',
@@ -199,19 +194,17 @@ class App extends Component {
     return (
       <styleCss.Main>
         {alert}
-        <styleCss.Title>
+        <div className="title">
           <h1>Omise Tamboon React</h1>
           <p>All donations: {donate.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} THB</p>
-        </styleCss.Title>
-        <styleCss.CardsDiv>
+        </div>
+        <div className="cards-div">
           {cards}
-        </styleCss.CardsDiv>
+        </div>
       </styleCss.Main>
     );
   }
 }
-
-
 
 export default connect((state) => state)(App);
 

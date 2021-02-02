@@ -5,18 +5,31 @@ export const styleCss = {
     color: #676D8D;
     font-family: Arial, Helvetica, sans-serif;
     min-width: 400px;
+        .title {
+            text-align: center;
+        }
+        .cards-div {
+            // CSS Grid Layout to create a layout that has as many columns of at least 480 pixels as will fit, distributing the extra space between all columns
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(480px, 1fr));
+        }
     `,
-    Title : styled.div`
-    text-align: center;
-    `,
-    CardsDiv : styled.div`
-    // CSS Grid Layout to create a layout that has as many columns of at least 480 pixels as will fit, distributing the extra space between all columns
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(480px, 1fr));
-    `,
-    Img : styled.img`
-    width:100%;
-    height: 220px;
+    Card : styled.div`
+    margin: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 4px #888888;
+    height: 300px;
+    position: relative;
+            .charity-img {
+                width:100%;
+                height: 220px;
+            }
+            .donate-section {
+                margin: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
     `,
     PaymentFormDiv :styled.div`
     position: absolute;
@@ -39,20 +52,14 @@ export const styleCss = {
             right: 0%;
             font-size: 20px
             }
+        .payment-section {
+            left: calc(50% - 114px);
+            position: absolute;
+            top: 0;
+            transform: translate(0, 50%);
+            text-align: center;
+        }
 
-    `,
-    Card : styled.div`
-    margin: 10px;
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 4px #888888;
-    height: 300px;
-    position: relative;
-    `,
-    DonateSection: styled.div`
-    margin: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     `,
     Button: styled.button`
     cursor: pointer;
@@ -65,12 +72,5 @@ export const styleCss = {
             outline: none;
             box-shadow: none;
           }
-    `,
-    PaymentSection: styled.div`
-    left: calc(50% - 114px);
-    position: absolute;
-    top: 0;
-    transform: translate(0, 50%);
-    text-align: center;
     `,
 }
