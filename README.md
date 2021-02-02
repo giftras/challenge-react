@@ -8,7 +8,7 @@
 
 ## Scenario
 
-Once upon a time.. nope!  
+Once upon a time.. nope!
 So here, you have been temporarily hired by Omise and assigned to work on the charity donation project which the previously assigned front-end developer and designer got the urgent matters to solve, so they will not be able to finish the project on time..
 
 Fortunately, the API server is already done. You will need to grab on the requirements and complete the project while ensuring the application to have great engineering and well-design ✨
@@ -17,7 +17,7 @@ Fortunately, the API server is already done. You will need to grab on the requir
 
 ## Mission
 
-Well, grap your guns, stock up your food and bring down your armor. We gonna need it for tonight!  
+Well, grap your guns, stock up your food and bring down your armor. We gonna need it for tonight!
 **Here are the tasks you must complete:**
 
 - [ ] Complete the application according to the design (image above).
@@ -67,3 +67,11 @@ You can push the project to your Github then share the link with us, or you can 
 If you notice more bugs in the original implementation you can add fixes for those as well. You won't be penalized if you don't. However we ask you not to add more features than the one given in the mission list.
 
 Let's rock! :metal:
+
+Please make sure you use this following webpack version
+ "webpack": "^4.32.2",
+ "webpack-cli": "^3.3.2",
+ "webpack-dev-server": "^3.5.1"
+ Use node v. 10.0.0
+
+ Old React
