@@ -34,7 +34,6 @@ class App extends Component {
   showHide(e) {
     const { charities } = this.state;
     const currentCharity= e.target.id -1;
-    console.log(charities)
     // To make sure other payment modal is closed before open the current one
     this.closePaymentModal();
     charities[currentCharity].show = !charities[currentCharity].show ? true : false;
@@ -103,8 +102,7 @@ class App extends Component {
         status: 'success',
       });
 
-    }).catch(function(err) {
-      console.log(err)
+    }).catch(function() {
       self.props.dispatch({
         type: 'UPDATE_MESSAGE',
         message: 'Sorry we can not process your payment. Please try again later.',
